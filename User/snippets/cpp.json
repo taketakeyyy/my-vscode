@@ -1,0 +1,242 @@
+{
+	// Place your snippets for cpp here. Each snippet is defined under a snippet name and has a prefix, body and 
+	// description. The prefix is what is used to trigger the snippet and the body will be expanded and inserted. Possible variables are:
+	// $1, $2 for tab stops, $0 for the final cursor position, and ${1:label}, ${2:another} for placeholders. Placeholders with the 
+	// same ids are connected.
+	// Example:
+	// "Print to console": {
+	// 	"prefix": "log",
+	// 	"body": [
+	// 		"console.log('$1');",
+	// 		"$2"
+	// 	],
+	// 	"description": "Log output to console"
+	// }
+	"KyoPro-sample": {
+		"prefix": "kyopro_default",
+		"body": [
+			"#define _USE_MATH_DEFINES  // M_PI等のフラグ",
+			"",
+			"#include <iostream>",
+			"#include <string>",
+			"#include <cstring>",
+			"#include <cmath>",
+			"#include <algorithm>",
+			"#include <map>",
+			"#include <vector>",
+			"#include <list>",
+			"",
+			"#define MOD 1000000007",
+			"#define COUNTOF(array) (sizeof(array)/sizeof(array[0]))",
+			"",
+			"using namespace std;",
+			"",
+			"string replace_with_str(string str, string str_from, string str_to) {",
+			"\tstring::size_type pos = 0;",
+			"\twhile (pos = str.find(str_from, pos), pos != string::npos) {",
+			"\t\tstr.replace(pos, str_from.length(), str_to);",
+			"\t\tpos += str_to.length();",
+			"\t}",
+			"\treturn str;",
+			"}",
+			"",
+
+			"void solve(){",
+			"\t${0:Go!}",
+			"}",
+			"",
+
+			"int main(int argc, char const *argv[]){",
+			"\tsolve();",
+			"\treturn 0;",
+			"}",
+		],
+		"description": "Default for KyoPro"
+	},
+
+	"cin_sample": {
+		"prefix": "cin_sample",
+		"body": [
+			"cin >> ${0};"	
+		],
+		"description": "cin I often use at Kyopro"
+	},
+
+	"cout_sample": {
+		"prefix": "cout_sample",
+		"body": [
+			"cout << ${0} << endl;"
+		],
+		"description": "cout I often use at Kyopro"
+	},
+
+	"printf_%d": {
+		"prefix": "printf_%d",
+		"body": [
+			"printf(\"%d\\n\", ${0:a});"
+		]
+	},
+
+	"scanf_%d": {
+		"prefix": "scanf_%d",
+		"body": [
+			"scanf(\"%d\",${0:&a});"
+		]
+	},
+
+	"scanf_%c": {
+		"prefix": "scanf_%c",
+		"body": [
+			"scanf(\"%c\",${0:&a});"
+		]
+	},
+
+	"transform_toupper": {
+		// s = "abcdef"
+		// transform(開始位置, 終了位置, 生成先, ::toupper)
+		// transform(s.begin(), s.end(), s.begin(), ::toupper); ==> s = "ABCDEF"
+		// transform(s.begin()+2, s.begin()+4, s.begin(), ::toupper); ==> s = "CDcdef"
+		"prefix": "transform_toupper",
+		"body": [
+			"transform(s.begin(), s.end(), s.begin(), ::toupper);"
+		],
+		"description": "文字列sを大文字にする"
+	},
+
+	"transform_tolower": {
+		"prefix": "transform_toupper",
+		"body": [
+			"transform(s.begin(), s.end(), s.begin(), ::tolower);"
+		],
+		"description": "文字列sを小文字にする"
+	},
+
+	"substr_sample": {
+		// stringの位置posから長さiの部分文字列を返す
+		// s = "abcdef"
+		// s.substr(1,3) ==> "bcd"
+		"prefix": "substr",
+		"body": "string.substr(pos, i);",
+		"description": "部分文字列を抽出する"
+	},
+
+	"str_slice": {
+		// stringの位置pos1からpos2までの部分文字列を返す（スライス）
+		// s = "abcdef"
+		// str_slice(s, 2, 3) ==> "c"
+		// str_slice(s, 2, 2) ==> ""
+		// str_slice(s, 2, 0) ==> ""
+		// str_slice(s, 2, 100) ==> "cdef"
+		"prefix": "str_slice",
+		"body": [
+			"string str_slice(string s, int start, int end){",
+			"\tif(end > s.size()){",
+			"\t\tend = s.size();",
+			"\t}",
+			"\tif(end-start <= 0){",
+			"\t\treturn \"\";",
+			"\t}",
+			"\treturn s.substr(start, end-start);",
+			"}",
+		],
+		"description": "部分文字列を抽出する"
+	},
+
+	"reverse_sample": {
+		// stringを逆順にする
+		// s = "ABCDEFG"
+		// reverse(s.begin(), s.end()) ==> s = "GFEDCBA"
+		"prefix": "reverse_sample",
+		"body": "reverse(s.begin(), s.end());",
+		"description": "文字列を逆順にする"
+	},
+
+	"for_map_iterator": {
+		// mapはキーでソートされている
+		// it->firstがキー
+		// it->secondが値
+		"prefix": "for_map_iterator",
+		"body": [
+			"for(auto it=mp.begin(); it!=mp.end(); it++){",
+			"\tcout << it->first << it->second << endl;",
+			"}",
+		],
+		"description": "for_map with iterator"
+	},
+
+	"for_map_pair": {
+		// mpの型とpairの型を合わせること
+		// map<string, int> mp ==> pair<string, int>
+		// p.firstはキー、p.secondは値
+		"prefix": "for_map_pair",
+		"body": [
+			"for(pair<char, int> p:mp){",
+			"\tcout << p.first << p.second << endl;",
+			"}"
+		],
+		"description": "foreach_map with pair"
+	},
+
+	"stable_sort_hairetsu_ascend": {
+		/* hairetsuの型とgreaterの型を合わせること */
+		"prefix": "sort_hairetsu_ascend",
+		"body": [
+			"stable_sort(${0:h}, ${1:h}+COUNTOF(${2:h}));"
+		],
+		"description": "配列の安定ソート（昇順）"
+	},
+
+	"stable_sort_hairetsu_descend": {
+		/* hairetsuの型とgreaterの型を合わせること */
+		"prefix": "sort_hairetsu_descend",
+		"body": [
+			"stable_sort(${0:h}, ${1:h}+COUNTOF(${2:h}), greater<${3:int}>());"
+		],
+		"description": "配列の安定ソート（降順）"
+	},
+
+	"stable_sort_vector_ascend": {
+		/* vectorの型とgreaterの型を合わせること */
+		"prefix": "sort_vector_ascend",
+		"body": [
+			"stable_sort(${0:v.begin()}, ${1:v.end()});"
+		],
+		"description": "vectorの安定ソート（昇順）"
+	},
+
+	"stable_sort_vector_descend": {
+		/* vectorの型とgreaterの型を合わせること */
+		"prefix": "sort_vector_descend",
+		"body": [
+			"stable_sort(${0:v.begin()}, ${1:v.end()}, greater<${2:int}>());"
+		],
+		"description": "vectorの安定ソート（降順）"
+	},
+
+	"map_sample": {
+		"prefix": "map_sample",
+		"body": "map<string, int> mp;",
+		"description": "連想配列を作成する"
+	},
+
+	"vector_2d": {
+		"prefix": "vector_2d",
+		"body": "vector<vector<int>> vv(N, vector<int>(N, 0))",
+		"description": "2次元vectorを作成する"
+	},
+
+	"string_replace_with_str":{
+		"prefix": "string_replace_with_str",
+		"body": [
+			"string replace_with_str(string str, string str_from, string str_to) {",
+				"\tstring::size_type pos = 0;",
+				"\twhile (pos = str.find(str_from, pos), pos != string::npos) {",
+				"\t\tstr.replace(pos, str_from.length(), str_to);",
+				"\t\tpos += str_to.length();",
+				"\t}",
+				"\treturn str;",
+				"}",
+		],
+		"description": "文字列の置換(string)"
+	}
+}

@@ -1,0 +1,9 @@
+# gnore all files
+*
+
+# Don`t ignore following files
+!/.gitignore
+
+!/User
+!/User/snippets
+!/User/snippets/cpp.json
