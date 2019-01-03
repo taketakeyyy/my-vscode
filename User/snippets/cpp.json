@@ -91,6 +91,173 @@
 		]
 	},
 
+	/********************************************
+	string
+
+	http://vivi.dyndns.org/tech/cpp/string.html
+
+	#include <string>
+	using namespace std;
+
+	// 空文字列の生成
+	string s;
+
+	// 文字列の初期化
+	string s = "abc";
+
+	string s(5, 'a'); --> "aaaaa"
+	
+	string s("abc")   --> "abc"
+
+	char *data = "hoge";
+	string s(data);   --> "hoge"
+
+	char chars[] = {'a', 'b', 'c'};
+	string s(chars, end(chars));  --> "abc"
+
+	char *str = "abc123xyz";
+	string s(str+3, str+6)  --> "123"
+
+	// コピーコンストラクタ
+	//   - 同じ型のオブジェクトを渡され、それと同じ内容のオブジェクトを作成する
+	string org("abc");
+	string x(org);  --> x = "abc"
+
+	// string型はvectorのようにアクセスできる
+	string s = "abcd";
+	char c = s[0];  -->  c = 'a'
+	s[1] = 'B';
+	printf("%s", s.c_str());  --> "aBcd"
+
+	// string型をprintfするときはc_str()が必要
+	printf("%s", s.c_str());	
+
+	// 文字列の連結
+	string s1 = "abcd";
+	string s2 = "efgh";
+	cout << s1+s2 << endl;  --> "abcdefgh"
+
+	// push_back()または+=
+	//   - 文字列の追加
+	string s;
+	s.push_back('A');
+	// s.push_back("ABC")  --> 文字列はerror
+	s += 'B';
+	s += "CD";
+	cout << s << endl;  --> "ABCD"
+	
+	// insert()
+	//   - 文字の挿入
+	string s = "ABCD";
+	s.insert(s.begin()+2, '-');
+	s.insert(s.begin()+2, "--");  --> ERROR!!
+	cout << s << endl;  --> "AB-CD"
+
+	// pop_back()
+	//   - 最後尾文字の削除
+	//   - なぜか削除した文字を返さない
+	string s = "ABCD";
+	s.pop_back();  --> "ABC";
+
+	// erase()
+	//   - 文字列を削除する
+	string s = "ABCD";
+	s.erase(s.begin()+2);  --> "ABD"
+
+	// empty(): bool
+	//   - size()で確認するよりも高速
+	string s;
+	s.empty  --> true
+
+	// size(): size_t
+	// length(): size_t
+	//   - 文字列の大きさを返す
+	//   - size_t はサイズを表す型で、符号なし整数の組み込み型である
+	//   - vectorなどの互換性のためにsize()がある？
+	string s = "ABC";
+	s.size();    --> 3
+	s.length();  --> 3
+
+	// capacity(): size_t
+	//   - 確保されているメモリに入る文字数を返すらしい
+	//   - 少し大きめに確保されていることがわかる
+	string s = "ABCD";
+	s.capacity();  --> 15
+
+	// front(): charへの参照
+	//   - 先頭文字を返す
+	string s = "ABC";
+	s.front()  --> 'A'
+
+	// back(): charへの参照
+	//   - 末尾文字を返す
+	string s = "ABC";
+	s.back()  --> 'C'
+
+	// substr(位置、サイズ): string
+	//   - 部分文字列を返す
+	string s = "ABCD";
+	s.substr(0, 2);  --> "AB"
+
+	// c_str(): charへのポインタ
+	// data(): charへのポインタ
+	//   - &s[0]と同等
+	string s = "ABCD";
+	printf("%s", s.c_str());  --> "ABCD"
+	
+	// clear(): void
+	//   - 空文字にする
+	string s = "ABCD";
+	s.clear();  --> 空文字列;
+
+	// resize(サイズ): void
+	//   - 文字数を指定サイズに設定する
+
+	// reserve(サイズ): void
+	//   - キャパシティを指定する
+
+	// swap(文字列): void
+	//   - 引数で指定されたオブジェクトと内容を入れ替える
+	string s1, s2;
+	s1 = "ABCD";
+	s2 = "XYZ";
+	s1.swap(s2);  --> s1 = "XYZ", s2 = "ABCD"
+
+	// shrink_to_fit(): void
+	//   - C++11で追加
+	//   - キャパシティを現在の値にし、余分なメモリを開放する
+
+
+	********************************************/
+	"string_erase_sample": {
+		// s = "ABCA";
+		// s.erase(s.begin()+1); --> "ACA"
+		// s.erase(s.begin(), s.begin()+3); --> "A"
+		// s.erase(find(s.begin(), s.end(), 'A') --> "BCA"
+		"prefix": "string_erase_sample",
+		"body": [
+			"s.erase(find(s.begin(), s.end(), 'a'));"
+		],
+		"description": "文字列sから文字'a'をひとつ消す"
+	},
+
+	"func:string_all_erase": {
+		// s = "atcoderaaa"
+		// string_all_erase(s, 'a') --> "tcoder" 
+		"prefix": "func:string_all_erase",
+		"body": [
+			"string string_all_erase(string s, char erase_c){",
+				"\tstd::string::size_type pos = s.find(erase_c);",
+				"\twhile(pos != std::string::npos){",
+					"\ts.erase(pos, 1);  // 1文字削除",
+					"\tpos = s.find(erase_c, pos);",
+				"\t}",
+				"\treturn s;",
+			"}"
+		],
+		"description": "文字列sから文字cをすべて消す"
+	},
+
 	"transform_toupper": {
 		// s = "abcdef"
 		// transform(開始位置, 終了位置, 生成先, ::toupper)
@@ -111,11 +278,11 @@
 		"description": "文字列sを小文字にする"
 	},
 
-	"substr_sample": {
+	"string_substr_sample": {
 		// stringの位置posから長さiの部分文字列を返す
 		// s = "abcdef"
 		// s.substr(1,3) ==> "bcd"
-		"prefix": "substr",
+		"prefix": "string_substr",
 		"body": "string.substr(pos, i);",
 		"description": "部分文字列を抽出する"
 	},
@@ -219,6 +386,22 @@
 		"description": "連想配列を作成する"
 	},
 
+	/*
+	vector
+
+	#include <vector>
+
+	using namespace std;
+
+	// 後ろに要素を追加する（push_back）
+	vector<string> vec;
+	vec.push_back("abcd");
+	vec.push_back("ABCD");
+	printf("%s", vec[0]); --> "abcd"
+	printf("%s", vec[1]); --> "ABCD"
+
+
+	*/
 	"vector_2d": {
 		"prefix": "vector_2d",
 		"body": "vector<vector<int>> vv(N, vector<int>(N, 0))",
