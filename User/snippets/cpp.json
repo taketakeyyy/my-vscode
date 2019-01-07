@@ -92,7 +92,7 @@
 	},
 
 	/********************************************
-	string
+	[string]
 
 	http://vivi.dyndns.org/tech/cpp/string.html
 
@@ -318,6 +318,7 @@
 		"description": "文字列を逆順にする"
 	},
 
+
 	"for_map_iterator": {
 		// mapはキーでソートされている
 		// it->firstがキー
@@ -362,6 +363,253 @@
 		"description": "配列の安定ソート（降順）"
 	},
 
+	/*
+	[map]
+
+	#include <map>
+	using namespace std;
+
+	*/
+	"map_sample": {
+		"prefix": "map_sample",
+		"body": "map<string, int> mp;",
+		"description": "連想配列を作成する"
+	},
+
+
+	/*
+	std::end()
+	配列末尾へのポインタを返す
+
+	int data[] = {1,2,3};
+	int *a = data;      --> 0x7ffdc2413f00
+	int *b = end(data); --> 0x7ffdc2413f0c
+	*/
+
+
+	/*
+	[vector]
+
+	http://vivi.dyndns.org/tech/cpp/vector.html
+
+	#include <vector>
+	using namespace std;
+
+	// 初期化
+	vector<int> vec(100);  --> int型で、要素数100の動的配列vec
+
+	vector<int> vec(100, 5)  --> int型で、要素数100で、全ての要素を5で初期化
+
+	int org_data[] = {1,2,3};  // 元データ
+	vector<int> data(org_data, org_data+3);  // 元データから動的配列を生成
+
+	int org_data[] = {1,2,3};
+	vector<int> data(org_data, end(org_data));  // 元データから動的配列を生成
+
+	vector<int> data{1,2,3};  // データ列を指定して動的配列を生成する
+
+	// コピーコンストラクタ
+	vector<int> org{1,2,3};
+	vector<int> x(org);  --> {1,2,3}
+
+	// 2次元配列
+	vector<vector <int>> vec{{1,2,3}, {4,5,6}};
+
+	// oerator=
+	// 同じ型同士であれば、=を使って通常の変数同様に代入することができる
+	vector<int> a{1,2,3,4};
+	vector<int> b, c;
+	c = b = a;  // aの内容をb,cに代入
+
+	// assign(first, last): void
+	// [first, last)の範囲のデータをvectorに代入できる
+	int ar[] = {1,2,3,4,5,6,7};
+	vector<int> vec{9,8};
+	vec.assign(&ar[0], &ar[3]);  --> vec = {1,2,3}
+
+	// assign(size_t n, cont T& val): void
+	// 要素数、値を指定して代入できる
+	vector<int> vec{9, 8};
+	vec.assign(3,1);  --> vec = {1,1,1}
+
+	// operator[]
+	vector<int> vec{1,2,3};  --> vec[0] = 1
+
+	// at(int ix): T&
+	// 返り値は値ではなく、要素への参照を返す
+	vector<int> vec{1,2,3};  --> vec[0] = 1
+	vec.at(0) = 9;  --> vec = {9,2,3}
+
+	// イテレータ
+	// イテレータとは、抽象化されたポインタのことである（？）
+	vector<int>::iterator itr;  // vector<int>の要素へのイテレータ
+	
+	// begin()とend()
+	vector<int> vec{1,2,3,4};
+	vector<int>::iterator itr = vec.begin();  // 最初の要素を指すイテレータ
+	cout << *itr << endl;  --> // 最初の要素の値を表示
+	++itr;                     // 次の要素に移動
+	*itr = 9;                  // 二番目の要素の値を9に変更
+
+	// イテレータを使ってvectorの要素の全てを走査する
+	for(auto itr=vec.begin(); itr!=vec.end(); ++itr){
+		cout << *itr << endl;
+	}
+
+	// push_back():void
+	// データを末尾に追加する
+	vector<string> vec;
+	vec.push_back("abcd");
+	vec.push_back("ABCD");
+	printf("%s", vec[0]); --> "abcd"
+	printf("%s", vec[1]); --> "ABCD"
+
+	// emplace_back(コンストラクタ引数):void
+	// コンテナが保持する型Tがクラスの場合、新規クラスオブジェクトをコンテナ末尾に追加する
+	vec.push_back(T(コンストラクタ引数));
+	// 上記はpush_back()の中でコピーコンストラクタに渡されて生成されて
+	// オブジェクトがコンテナに追加され、push_back()コール時に生成されたオブジェクトが破棄される。
+	// コピーコンストラクタ、オブジェクトの破棄の処理が重いクラスの場合、
+	// 代わりにemplace_back()を使うと良い。
+	class Hoge {
+		public:
+			Hoge(std::string&, int);  // コンストラクタ
+			.....
+	};
+	.....
+	std::vector<Hoge> vec;
+	vec.emplace_back("abc", 123);  // push_back(Hoge("abc", 123))と同等
+
+	// insert(iterator, 値): iterator
+	// 任意の場所のデータをO(N)で挿入する
+	vector<int> vec(10, 3);
+	vec.insert(vec.begin()+4, 99);  // [4]の位置に99を挿入
+	--> {3, 3, 3, 3, 99, 3, 3, 3, 3, 3, 3}
+
+	// pop_back(): void
+	// 最後の要素を削除する
+	// 何故か返り値がvoidなので、最後の要素の値がほしい場合はback()を使用する
+	vector<int> vec{1,2,3,4,5,6};
+	int a = vec.back();  // a == 6
+	vec.pop_back();      // vec = {1,2,3,4,5} 
+
+	// erase(iterator): iterator
+	vector<int> vec{1,2,3,4,5};
+	vec.erase(vec.begin()+2);   // vec = {1,2,4,5}
+
+	// empty():bool
+	// vectorが空ならばtrue,そうでなければfalse
+	// size() == 0より高速かも
+	if(!vec.empty()){
+		// vecが空でないときの処理
+	}
+
+	// size():size_t
+	// 要素数を返す
+	// 通常配列だとsizeof(data)/sizeof(data[0])のようにやるが、vectorではそうしなくて良い
+	for(int i=0; i != vec.size(); i++){
+		vec[i] = 99;
+	}
+
+	// capacity(): size_t
+	// 動的配列が確保しているメモリに入る要素数、すなわち現在のデータ容量を返す関数
+
+	// front(): 要素の型への参照
+	// 先頭要素を返す
+	// back(): 要素の型への参照
+	// 末尾要素を返す
+	vector<int> vec{1,2,3};
+	auto a = vec.front();  // a == 1
+	auto b = vec.back();   // b == 3
+
+	// data(): 要素の型へのポインタ
+	// 配列データ先頭アドレスを返す。&hoge[0]と同等
+
+	// clear(): void
+	// サイズを0にするだけ。メモリは解放されない。
+	// メモリを開放したい場合はshrink_to_fit()またはswap()を使用する
+
+	// resize(サイズ): void
+	// 要素数を指定サイズに設定する
+
+	// reserve(サイズ): void
+	// キャパシティを指定する
+	vector<int> vec;
+	vec.reserve(10000);  // 予め1万個の領域を確保しておいたほうが高速
+	for(int i=0; i<10000; i++){
+		vec.push_back(i);
+	}
+
+	// swap(オブジェクト): void
+	// 引数で指定されたオブジェクトと内容を入れ替える関数
+	vector<int> v, z;
+	v, zにデータを追加
+	v.swap(z);  // vとzの内容を入れ替える
+
+	// shrink_to_fit(): void
+	// clear()を使ってもメモリは開放されないので、C++11以前は以下のようなコードを書いていた
+	vector<int> vec;
+	vecにデータを追加
+	vector<int>().swap(vec);  // 空のテンポラリオブジェクトを生成し、中身を入れ替える
+
+	// shrink_to_fitはC++11で追加され、キャパシティを現在のサイズの値にし、余分なメモリを開放する
+
+	// vectorを関数の引数として渡す
+	// vectorはクラスなので、vectorオブジェクトを引数として関数に渡すことが可能
+	int max(vector<int> v){
+		v[i]...
+	}
+	vector<int> vec;
+	int mx = max(vec);
+
+	// 上記の書き方は正しく動作するが、値渡しは関数コール時にコピーコンストラクタが呼ばれるので重い。
+	// 参照渡しにするのが良い
+	int max(vector<int> &v){
+		v[i]...  // 中身は一緒
+	}
+
+	// よく使うアルゴリズム
+	
+	// count(begin, end, 値)
+	// 動的配列のbeginからendまでを走査し、指定の値の数を返す
+	vector<int> vec{1,2,2,3,3,3,4,4,4,4};
+	count(vec.begin(), vec.end(), 3)  // --> 3
+
+	// find(begin, end, 値)
+	// beginからendまでを走査し、最初の要素へのイテレータを返す
+	vector<int> vec{1,2,3,4,5,4,3,2,1};
+	auto itr = find(vec.begin(), vec.end(), 4);  // 最初に見つかった4のイテレータを返す
+	if(itr != v.end()){
+		// 発見した場合の処理
+	}
+
+	// 途中から検索する場合
+	vector<int> vec{1,2,3,4,5,6,7,6,5,4,3,2,1};
+	auto itr = vec.begin();
+	while(true){
+		itr = find(itr, vec.end(), 5);
+		if(itr == vec.end()){ break; }
+		cout << itr - vec.begin() << endl;  // インデックスを表示
+		++itr;
+	}
+
+	// accumulate(begin, end, init)
+	// beginからendまで、要素を積算する。initは初期値。
+	#include <numeric>
+	vector<int> vec{1,2,3,4,5,4,3,2,1};
+	auto sum = accumulate(vec.begin(), vec.end(), 0);
+
+	// sort(begin, end)
+	// 要素を昇順にソートする
+	vector<int> vec{1,2,3,4,5,4,3,2,1};
+	sort(vec.begin(), vec.end());
+
+	// reverse(begin, end)
+	// 要素を逆順にする
+	vector<int> vec{1,2,3,33,2,1,99,1};
+	reverse(vec.begin(), vec.end());  // --> {1,99,1,2,33,3,2,1}
+
+	*/
 	"stable_sort_vector_ascend": {
 		/* vectorの型とgreaterの型を合わせること */
 		"prefix": "sort_vector_ascend",
@@ -380,28 +628,6 @@
 		"description": "vectorの安定ソート（降順）"
 	},
 
-	"map_sample": {
-		"prefix": "map_sample",
-		"body": "map<string, int> mp;",
-		"description": "連想配列を作成する"
-	},
-
-	/*
-	vector
-
-	#include <vector>
-
-	using namespace std;
-
-	// 後ろに要素を追加する（push_back）
-	vector<string> vec;
-	vec.push_back("abcd");
-	vec.push_back("ABCD");
-	printf("%s", vec[0]); --> "abcd"
-	printf("%s", vec[1]); --> "ABCD"
-
-
-	*/
 	"vector_2d": {
 		"prefix": "vector_2d",
 		"body": "vector<vector<int>> vv(N, vector<int>(N, 0))",
