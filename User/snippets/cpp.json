@@ -628,6 +628,21 @@
 		"description": "vectorの安定ソート（降順）"
 	},
 
+	"map_sample": {
+		"prefix": "map_sample",
+		"body": "map<string, int> mp;",
+		"description": "連想配列を作成する"
+	},
+
+	/*
+	vector
+	*/
+	"vector_sample": {
+		"prefix": "vector_sample",
+		"body": "vector<int> vec(N, 0)",
+		"description": "vectorを作成する"
+	},
+
 	"vector_2d": {
 		"prefix": "vector_2d",
 		"body": "vector<vector<int>> vv(N, vector<int>(N, 0))",
@@ -647,5 +662,37 @@
 				"}",
 		],
 		"description": "文字列の置換(string)"
+	},
+
+	/*
+	pair
+	https://programming-place.net/ProgrammingPlacePlus/cpp/library/003.html
+	*/
+	// pair<int, int> itv[10];
+	// itv[i].first = 10;
+	// itv[i].second = 20;
+	// sort(itv, itv + N); (first要素でソートされる)
+	"pair_sample":{
+		"prefix": "pair_sample",
+		"body": [
+			"pair<int, int> itv[N];"
+		],
+		"description": "pairのサンプル"
+	},
+
+	"nake_pair_sample":{
+		"prefix": "make_pair_sample",
+		"body": [
+			"auto a = make_pair(10, 20);"
+		],
+		"description": "make_pairのサンプル"
+	},
+	
+
+
+	// END
+	"dummy":{
+		"prefix": "dummy",
+		"body": "dummy"
 	}
 }
