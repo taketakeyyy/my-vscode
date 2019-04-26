@@ -24,6 +24,12 @@
 		"prefix": "if__name__==\"__main__\"",
 		"body": "if __name__ == \"__main__\":\n    $1"
 	},
+
+	// 競技プログラミング用
+	"Kyopuro Format": {
+		"prefix": "kyopuro-format",
+		"body": "# -*- coding:utf-8 -*-\n\ndef solve():\n\t$1\n\nif __name__ == \"__main__\":\n\tsolve()\n"
+	},
 	
 	// 数列の公式
 	"Sum of arithmetic series（等差数列の和）": {
