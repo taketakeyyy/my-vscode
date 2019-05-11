@@ -563,5 +563,43 @@
         // print(result / loop) --> 0.0002666301020071842
 		"prefix": "timeit_timeit",
 		"body": "timeit.timeit(stmt=${1:'pass'}, setup=${2:'pass'}, timer=${3:<default timer>}, number=${4:1000000}, globals=${5:None})"
+	},
+
+	// Union-Find木
+	"Union-Find": {
+		"prefix": ["Union-Find", "union-find", "unionfind"],
+		"body": [
+			"class UnionFind():",
+			"\tdef __init__(self, N):",
+			"\t\t\"\"\" N個のノードのUnion-Find木を作成する \"\"\"",
+			"\t\t# 親の番号を格納する。自分が親だった場合は、自分の番号になり、それがそのグループの番号になる",
+			"\t\tself.parent = [n for n in range(0, N)]",
+			"\t\t# グループの深さ",
+			"\t\tself.depth = [1] * N",
+			"",
+			"\tdef find(self, x):",
+			"\t\t\"\"\" 木の根(どのグループか)を求める \"\"\"",
+			"\t\tif self.parent[x] == x: return x",
+			"\t\tself.parent = self.find(self.parent[x]) # 縮約",
+			"\t\treturn self.parent",
+			"",
+			"\tdef unite(self, x, y):",
+			"\t\t\"\"\" xとyの属する集合を併合する \"\"\"",
+			"\t\tgx = self.find(x)",
+			"\t\tgy = self.find(y)",
+			"\t\tif gx == gy: return",
+			"",
+			"\t\t# 小さい方を大きい方に併合させる（木の偏りが減るので）",
+			"\t\tif self.depth[gx] < self.depth[gy]:",
+			"\t\t\tself.parent[gx] = gy",
+			"\t\telse:",
+			"\t\t\tself.parent[gy] = gx",
+			"\t\t\tif self.depth[gx] == self.depth[gy]: self.depth[gx] += 1",
+			"",
+			"\tdef is_same_group(self, x, y):",
+			"\t\t\"\"\" xとyが同じ集合に属するか否か \"\"\"",
+			"\t\treturn self.find(x) == self.find(y)",
+			""
+		]
 	}
 }
