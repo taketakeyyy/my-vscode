@@ -158,6 +158,7 @@
 		"prefix": ["lcm", "Least_Common_Multiple", "least_common_multiple"],
 		"body": [
 			"def lcm(a, b):",
+			"\t\"\"\" aとbの最小公倍数を返す \"\"\"",
 			"\treturn a*b/gcd(a, b)"
 		]
 	},
