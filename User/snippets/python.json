@@ -159,7 +159,7 @@
 		"body": [
 			"def lcm(a, b):",
 			"\t\"\"\" aとbの最小公倍数を返す \"\"\"",
-			"\treturn a*b/gcd(a, b)"
+			"\treturn a*b // gcd(a, b)"
 		]
 	},
 
