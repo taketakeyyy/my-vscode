@@ -31,6 +31,32 @@
 		"body": "# -*- coding:utf-8 -*-\n\ndef solve():\n\t$1\n\nif __name__ == \"__main__\":\n\tsolve()\n"
 	},
 	
+	// import
+	"import gcd": {
+		"prefix": "import_gcd",
+		"body": "from math import gcd"
+	},
+	"import gcd (old)": {
+		"prefix": "import_gcd_old",
+		"body": "from fractions import gcd"
+	},
+	"import add":{
+		"prefix": "import_add",
+		"body": "from operator import add"
+	},
+	"import sub":{
+		"prefix": "import_sub",
+		"body": "from operator import sub"
+	},
+	"import mul":{
+		"prefix": "import mul",
+		"body": "from operator import mul"
+	},
+	"import reduce":{
+		"prefix": "import_reduce",
+		"body": "from functools import reduce"
+	},
+
 	// 数列の公式
 	"Sum of arithmetic series（等差数列の和）": {
 		// 等差数列の公式
@@ -124,16 +150,6 @@
 			"gcd(${a}, ${b})"
 		]
 	},
-	"Old Ver Greatest Common Divisor": {
-		// 最大公約数を返す
-		// 3.4まではこっちを使う
-		// gcd(10, 8) --> 2
-		"prefix": ["gcd_old"],
-		"body": [
-			"import fractions.gcd",
-			"gcd(${a}, ${b})"
-		]
-	},
 
 	// 最小公倍数
 	"Least Common Multiple": {
@@ -143,6 +159,19 @@
 		"body": [
 			"def lcm(a, b):",
 			"\treturn a*b/gcd(a, b)"
+		]
+	},
+
+	// 高階関数
+	"Reduce": {
+		// 高階関数
+		// リストの要素の左から順に繰り返し関数を適用したいときに使う
+		// array = [10, 20, 30, 40, 50]
+		// reduce(add, array) --> 150
+		// reduce(mul, array) --> 12000000
+		"prefix": "reduce",
+		"body": [
+			"reduce(${func}, ${array})"
 		]
 	},
 
@@ -291,7 +320,7 @@
         // class C:
         //     @classmethod
         //     def func(cls, arg1, arg2, ...): ...
-		"prefix": "classmethod",
+		"prefix": ["classmethod", "@classmethod"],
 		"body": "@classmethod"
 	},
 
