@@ -111,6 +111,41 @@
 		"body": "zeta_k6 = math.pi**6/945"
 	},
 
+	// 最大公約数
+	"Greatest Common Divisor": {
+		// 最大公約数
+		// 3.5以降は、math.gcd()
+		// それ以前は、fractions.gcd()を使うこと
+		// gcd(10, 8) --> 2
+		// gcd(10, 8, 4) --> Error
+		"prefix": ["gcd", "Greatest_Common_Divisor", "greatest_common_divisor"],
+		"body": [
+			"import math.gcd",
+			"gcd(${a}, ${b})"
+		]
+	},
+	"Old Ver Greatest Common Divisor": {
+		// 最大公約数を返す
+		// 3.4まではこっちを使う
+		// gcd(10, 8) --> 2
+		"prefix": ["gcd_old"],
+		"body": [
+			"import fractions.gcd",
+			"gcd(${a}, ${b})"
+		]
+	},
+
+	// 最小公倍数
+	"Least Common Multiple": {
+		// 最小公倍数
+		// gcdを使うのでimportすること
+		"prefix": ["lcm", "Least_Common_Multiple", "least_common_multiple"],
+		"body": [
+			"def lcm(a, b):",
+			"\treturn a*b/gcd(a, b)"
+		]
+	},
+
 	// 文字列操作
 	"s_change": {
         // 文字列sにおいて s[0] = "?" とやるとエラーが起きるので、その機能を提供する
