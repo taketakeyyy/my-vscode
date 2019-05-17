@@ -210,7 +210,7 @@
         // chr(97) --> 'a'
         // chr(8364) --> '€'
 		"prefix": "chr",
-		"body": "chr(${i})"
+		"body": "chr(97)"
 	},
 	"ord": {
 		// 1文字のUnicode文字を、Unicode コードポイントを表す整数を返す
