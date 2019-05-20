@@ -658,7 +658,7 @@
 			"\t\treturn self._parent[x]",
 			"",
 			"\tdef unite(self, x, y):",
-			"\t\t\"\"\" xとyの属する集合を併合する \"\"\"",
+			"\t\t\"\"\" xとyの属するグループを併合する \"\"\"",
 			"\t\tgx = self.find_root(x)",
 			"\t\tgy = self.find_root(y)",
 			"\t\tif gx == gy: return",
@@ -672,11 +672,20 @@
 			"",
 			"\tdef get_depth(self, x):",
 			"\t\t\"\"\" xが属するグループの深さを返す \"\"\"",
-			"\t\treturn self._depth(self.find_root(x))",
+			"\t\treturn self._depth[self.find_root(x)]",
 			"",
 			"\tdef is_same_group(self, x, y):",
 			"\t\t\"\"\" xとyが同じ集合に属するか否か \"\"\"",
 			"\t\treturn self.find_root(x) == self.find_root(y)",
+			"",
+			"\tdef calc_group_num(self):",
+			"\t\t\"\"\" グループ数を計算して返す \"\"\"",
+			"\t\tN = len(self._parent)",
+			"\t\tans = 0",
+			"\t\tfor i in range(N):",
+			"\t\t\tif self.find_root(i) == i:",
+			"\t\t\t\tans += 1",
+			"\t\treturn ans"
 		]
 	},
 	"Union-Find(Size)": {
@@ -697,7 +706,7 @@
 			"\t\treturn self._parent[x]",
 			"",
 			"\tdef unite(self, x, y):",
-			"\t\t\"\"\" xとyの属する集合を併合する \"\"\"",
+			"\t\t\"\"\" xとyの属するグループを併合する \"\"\"",
 			"\t\tgx = self.find_root(x)",
 			"\t\tgy = self.find_root(y)",
 			"\t\tif gx == gy: return",
@@ -712,11 +721,20 @@
 			"",
 			"\tdef get_size(self, x):",
 			"\t\t\"\"\" xが属するグループのサイズ（個数）を返す \"\"\"",
-			"\t\treturn self._size(self.find_root(x))",
+			"\t\treturn self._size[self.find_root(x)]",
 			"",
 			"\tdef is_same_group(self, x, y):",
 			"\t\t\"\"\" xとyが同じ集合に属するか否か \"\"\"",
-			"\t\treturn self.find_root(x) == self.find_root(y)"
+			"\t\treturn self.find_root(x) == self.find_root(y)",
+			"",
+			"\tdef calc_group_num(self):",
+			"\t\t\"\"\" グループ数を計算して返す \"\"\"",
+			"\t\tN = len(self._parent)",
+			"\t\tans = 0",
+			"\t\tfor i in range(N):",
+			"\t\t\tif self.find_root(i) == i:",
+			"\t\t\t\tans += 1",
+			"\t\treturn ans"
 		]
-	}
+	},
 }
