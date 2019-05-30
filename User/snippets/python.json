@@ -32,6 +32,11 @@
 	},
 	
 	// import
+	// from math
+	"import factorial":{
+		"prefix": ["import_factorial", "import_kaijou"],
+		"body": "from math import factorial"
+	},
 	"import gcd": {
 		"prefix": "import_gcd",
 		"body": "from math import gcd"
@@ -40,6 +45,7 @@
 		"prefix": "import_gcd_old",
 		"body": "from fractions import gcd"
 	},
+	// from operator
 	"import add":{
 		"prefix": "import_add",
 		"body": "from operator import add"
@@ -52,13 +58,15 @@
 		"prefix": "import mul",
 		"body": "from operator import mul"
 	},
+	// from functools
 	"import reduce":{
 		"prefix": "import_reduce",
 		"body": "from functools import reduce"
 	},
-	"import factorial":{
-		"prefix": ["import_factorial", "import_kaijou"],
-		"body": "from math import factorial"
+	// from collections
+	"import defaultdict":{
+		"prefix": ["import_defaultdict"],
+		"body": "from collections import defaultdict"
 	},
 
 	// 数列の公式
