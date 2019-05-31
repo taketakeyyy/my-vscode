@@ -45,6 +45,18 @@
 		"prefix": "import_gcd_old",
 		"body": "from fractions import gcd"
 	},
+	"import sqrt": {
+		"prefix": "import_sqrt",
+		"body": "from math import sqrt"
+	},
+	"import ceil": {
+		"prefix": ["import_ceil", "import_kiriage"],
+		"body": "from math import ceil"
+	},
+	"import floor": {
+		"prefix": ["import_ceil", "import_kirisage"],
+		"body": "from math import floor"
+	},
 	// from operator
 	"import add":{
 		"prefix": "import_add",
