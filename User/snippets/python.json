@@ -80,6 +80,12 @@
 		"prefix": ["import_defaultdict"],
 		"body": "from collections import defaultdict"
 	},
+	// import numpy
+	"import numpy":{
+		"prefix": ["import_numpy"],
+		"body": "import numpy as np"
+	},
+	
 
 	// 数列の公式
 	"Sum of arithmetic series（等差数列の和）": {
