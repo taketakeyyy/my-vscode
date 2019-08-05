@@ -51,6 +51,11 @@
       "lang": "ja",
     },
 
+    /*** Settings Each Languages ***/
+    "[python]": {
+      "editor.tabSize": 4,
+    },
+
     /*** Others ***/
     "C_Cpp.updateChannel": "Insiders",
 }
