@@ -5,6 +5,8 @@
 !/.gitignore
 
 !/User
+!/User/settings.json
 !/User/snippets
 !/User/snippets/cpp.json
 !/User/snippets/python.json
+
