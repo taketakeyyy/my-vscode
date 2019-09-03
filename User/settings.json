@@ -43,7 +43,7 @@
       "tab.inactiveForeground"                : "#999999",                //アクティブでないタブの色
       "editorSuggestWidget.selectedBackground": "#1e9e5e5e",              //選択しているサジェストの背景色
       "editorSuggestWidget.foreground"        : "#f1efef",                //選択しているサジェストの文字色
-      "editorWhitespace.foreground": "#8a8888",                           //tab等の制御文字
+      "editorWhitespace.foreground"           : "#8a8888",                //tab等の制御文字
     },
 
     /*** emmet ***/
@@ -54,6 +54,10 @@
     /*** Settings Each Languages ***/
     "[python]": {
       "editor.tabSize": 4,
+    },
+
+    "[json]": {
+      "editor.tabSize": 2,
     },
 
     /*** Others ***/
