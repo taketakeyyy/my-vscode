@@ -85,19 +85,35 @@
 		"prefix": ["import_numpy"],
 		"body": "import numpy as np"
 	},
+	// import sys
+	"import sys":{
+		"prefix": ["import_sys"],
+		"body": "import sys"
+	},
 
+	// 高速な標準入力
+	"高速な標準入力 sys.stdin.readline()": {
+		// input()より少し高速。使い方はinput()と同じ
+		"prefix": ["sys_stdin_readline()", "input_high_speed"],
+		"body": "sys.stdin.readline()"
+	},
+	// 再帰関数の制限を設定
+	"再帰関数の制限を設定": {
+		"prefix": ["saikikansuu_settei", "sys_setrecursionlimit", "setrecursionlimit"],
+		"body": "sys.setrecursionlimit(1000000)"
+	},
 
 	// 数列の公式
 	"Sum of arithmetic series（等差数列の和）": {
 		// 等差数列の公式
 		// 初項が a，末項が l，項数が n であるような等差数列の和は，(n(a+l))/2
-		"prefix": "ari_series",
+		"prefix": ["tousasuuretu_formula", "ari_series"],
 		"body": "ari_series = lambda a, l, n: n * (a + l) / 2"
 	},
 	"Sum of geometric series（等比数列の和）": {
         // 等比数列の公式
         // 初項が a，公比 r，項数 n の等比数列の和は（r≠1 のもとで），a(1−r^n)/(1−r)
-		"prefix": "geo_series",
+		"prefix": ["touhisuuretu_formula", "geo_series"],
 		"body": "geo_series = lambda a, r, n: a * (1 - r**n) / (1 - r)"
 	},
 
@@ -107,21 +123,21 @@
         // 初項が a，公比 r，の無限等比級数の和は（ただし、|r|<1）,
         // ∑(k=0,∞)(ar^k) = a + ar + ar^2 ⋯ = a /(1−r)
         // inf_geo_series_a(1,1/2) --> 2.0
-		"prefix": "inf_geo_series_a",
+		"prefix": ["mugen_touhikyuusuu_formula_a", "inf_geo_series_a"],
 		"body": "inf_geo_series_a = lambda a, r: a/(1-r)"
 	},
 	"Sum of infinite geometric series（無限等比級数の和の応用 k）": {
         // 無限等比級数の和の応用（ただし、|r|<1）,
         // ∑(k=1,∞)(kr^k) = r + 2r^2 + 3r^3 + ⋯ = r / (1-r)^2
         // inf_geo_series_k(1/2) --> 2.0
-		"prefix": "inf_geo_series_k",
+		"prefix": ["mugen_touhikyuusuu_formula_k", "inf_geo_series_k"],
 		"body": "inf_geo_series_k = lambda r: r/(1-r)**2"
 	},
 	"Sum of infinite geometric series（無限等比級数の和の応用 k^2）": {
         // 無限等比級数の和の応用（ただし、|r|<1）,
         // ∑(k=1,∞)(k^2 * r^k) = r + 4r^2 + 9r^3 + ⋯ = (r+r^2)/(1-r)^3
         // inf_geo_series_k2(1/2) --> 6.0
-		"prefix": "inf_geo_series_k^2",
+		"prefix": ["mugen_touhikyuusuu_formula_k^2", "inf_geo_series_k^2"],
 		"body": "inf_geo_series_k2 = lambda r: (r+r**2)/(1-r)**3"
 	},
 
