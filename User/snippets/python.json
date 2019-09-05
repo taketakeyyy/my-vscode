@@ -259,9 +259,19 @@
 		"prefix": "int_input",
 		"body": "int(input())"
 	},
+	"Int-SysStdinReadline": {
+		"prefix": "int_sysStdinReadline",
+		"body": "int(sys.stdin.readline())"
+	},
+
 	"List-Int-Input": {
 		"prefix": "list_int_input",
 		"body": "list(map(int, input().split()))"
+	},
+	"List_Int_SysStdinReadline": {
+		// input()より高速な標準入力
+		"prefix": "list_int_sysStdinReadline",
+		"body": "list(map(int, sys.stdin.readline().split()))"
 	},
 
 	// Built-in function
