@@ -80,6 +80,10 @@
 		"prefix": ["import_defaultdict"],
 		"body": "from collections import defaultdict"
 	},
+	"import Counter":{
+		"prefix": ["import_Counter"],
+		"body": "from collections import Counter"
+	},
 	// import numpy
 	"import numpy":{
 		"prefix": ["import_numpy"],
@@ -697,7 +701,7 @@
 	},
 
 	// timeit
-    // https://docs.python.jp/3.6/library/timeit.html//module-timeit
+  // https://docs.python.jp/3.6/library/timeit.html//module-timeit
 	"timeit.timeit": {
         // timeit.timeit(stmt='pass', setup='pass', timer=<default timer>, number=1000000, globals=None)
         // 与えられたstmt、setup コードおよび timer 関数で Timer インスタンスを作成し、
@@ -711,6 +715,33 @@
         // print(result / loop) --> 0.0002666301020071842
 		"prefix": "timeit_timeit",
 		"body": "timeit.timeit(stmt=${1:'pass'}, setup=${2:'pass'}, timer=${3:<default timer>}, number=${4:1000000}, globals=${5:None})"
+	},
+
+	// 自作def
+	"Prime Factorization": {
+		"prefix": ["def_prime_factorization", "def_soinsuubunnkai"],
+		"body": [
+			"def prime_factorization(n):",
+			"\t\"\"\"nを素因数分解する",
+			"",
+			"\tReturn d(dict):",
+			"\t\t素因数をキー、素因数の指数部を値とするディクショナリを返す",
+			"",
+			"\tExample:",
+			"\t\tn=140 -> d = {2: 2, 5: 1, 7: 1}",
+			"\t\"\"\"",
+			"\td = Counter()",
+			"\tm = 2",
+			"\twhile m*m <= n:",
+			"\t\twhile n%m == 0:",
+			"\t\t\tn //= m",
+			"\t\t\td[m] += 1",
+			"\t\tm = m + 1 if m == 2 else m + 2",
+			"",
+			"\tif n > 1:",
+			"\t\td[n] += 1",
+			"\treturn d",
+		]
 	},
 
 	// Union-Find木
