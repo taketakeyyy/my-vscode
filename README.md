@@ -10,3 +10,5 @@ windows10 maybe: `C:\Users\user-name\AppData\Roaming\Code`
   - Shows image preview in the gutter and on hover.
 * [Trailing Spaces](https://marketplace.visualstudio.com/items?itemName=shardulm94.trailing-spaces)
   - Highlight trailing spaces and delete them in a flash!
+* [HTML Preview](https://marketplace.visualstudio.com/items?itemName=tht13.html-preview-vscode)
+  - Rightclick a tab of .html file > "Open Preciew(Ctrl+Shift+V)"

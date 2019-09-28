@@ -28,8 +28,7 @@
     /*** workbench ***/
     "workbench.editor.showTabs"                  : true,                  // タブを表示
     "workbench.editor.enablePreview"             : false,                 // 毎回新規で開く
-    "workbench.editor.enablePreviewFromQuickOpen": false,                 // 毎回新規で開く
-    "workbench.activityBar.visible"              : false,                 // アクティビティバー(左端)を非表示に
+    "workbench.editor.enablePreviewFromQuickOpen": false, // アクティビティバー(左端)を非表示に
     "workbench.editor.tabSizing"                 : "shrink",              // タブが多い場合,文字を非表示にしてもタブ表示を優先する
     "workbench.statusBar.visible"                : true,                  // ステータスバー(下端)を表示
     "workbench.sideBar.location"                 : "left",                // サイドバーを左に

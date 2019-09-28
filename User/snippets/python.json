@@ -94,6 +94,11 @@
 		"prefix": ["import_sys"],
 		"body": "import sys"
 	},
+	// import bisect
+	"import bisect":{
+		"prefix": "[import_bisect]",
+		"body": "import bisect"
+	},
 
 	// 高速な標準入力
 	"高速な標準入力 sys.stdin.readline()": {
