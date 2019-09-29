@@ -99,6 +99,11 @@
 		"prefix": "[import_bisect]",
 		"body": "import bisect"
 	},
+	// import queue
+	"import queue":{
+		"prefix": ["import_queue"],
+		"body": "import queue"
+	},
 
 	// 高速な標準入力
 	"高速な標準入力 sys.stdin.readline()": {
