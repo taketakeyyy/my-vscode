@@ -256,7 +256,17 @@
 		"prefix": ["combination_formula", "kumiawase_formula"],
 		"body": [
 			"def combination_formula(n, r):",
-			"\treturn factorial(n) // (factorial(r)*factorial(n-r))"
+			"\t\"\"\"nCrは、O(min(n-r, r))で実装する",
+			"\tNotes:",
+			"\t\t分子と分母がかなり大きな値になった場合、計算は遅くなるので注意",
+			"\t\t求める値がmodをとった値でいい場合、フェルマーの小定理を使った方法が速い。",
+			"\t\"\"\"",
+			"\tr = min(n-r, r)",
+			"\tbunsi, bunbo = 1, 1",
+			"\tfor i in range(r):",
+			"\t\tbunsi = bunsi*(n-i)",
+			"\t\tbunbo = bunbo*(i+1)",
+			"\treturn bunsi//bunbo"
 		]
 	},
 
