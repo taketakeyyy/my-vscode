@@ -1,15 +1,17 @@
 {
     /*** terminal  ***/
-    "terminal.integrated.shell.windows": "C:\\Windows\\System32\\cmd.exe",
+    "terminal.integrated.shell.windows": "C:\\WINDOWS\\System32\\WindowsPowerShell\\v1.0\\powershell.exe",
     //"terminal.integrated.shell.windows": "C:\\Windows\\Sysnative\\WindowsPowerShell\\v1.0\\powershell.exe",
 
     /*** Run activate with Anaconda ***/
+    /*
     "terminal.integrated.shellArgs.windows": [
         "/K",
         "%USERPROFILE%/AppData/Local/Continuum/anaconda3/Scripts/activate.bat",
         "%USERPROFILE%/AppData/Local/Continuum/anaconda3",
         ""
     ],
+    */
 
     /*** editor ***/
     "editor.autoClosingBrackets": "never",
@@ -61,4 +63,7 @@
 
     /*** Others ***/
     "C_Cpp.updateChannel": "Insiders",
+    "explorer.confirmDragAndDrop": false,
+    "terminal.integrated.inheritEnv": false,
+    "gitlens.gitCommands.closeOnFocusOut": true,
 }

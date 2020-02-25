@@ -230,7 +230,22 @@
 		"prefix": ["permutation_formula", "junretu_formula"],
 		"body": [
 			"def permutation_formula(n, r):",
-			"\treturn factorial(n) // factorial(n-r)"
+			"\tans = 1",
+			"\tfor i in range(n, n-r, -1):",
+			"\t\tans = (ans*i)",
+			"\treturn ans"
+		]
+	},
+
+	"Permutation Formula (MOD)": {
+		// nPrの計算結果がMODで割ったあまりで良い場合はこちらを使う
+		"prefix": ["permutation_formula_MOD", "junretu_formula_MOD"],
+		"body": [
+			"def permutation_formula_MOD(n, r, MOD):",
+			"\tans = 1",
+			"\tfor i in range(n, n-r, -1):",
+			"\t\tans = (ans*i)%MOD",
+			"\treturn ans"
 		]
 	},
 
@@ -243,6 +258,25 @@
 			"def combination_formula(n, r):",
 			"\treturn factorial(n) // (factorial(r)*factorial(n-r))"
 		]
+	},
+
+	"Combination Formula (MOD)": {
+		// 異なるn個の中から、異なるr個を取り出す組み合わせの場合の数を、フェルマーの小定理により高速に計算する
+		"prefix": ["combination_formula_MOD", "kumiawase_formula_MOD"],
+		"body": [
+			"def combination_formula_MOD(n, r, MOD):",
+			"\t\"\"\"nCrを O(min(n-r, r)) で高速に計算する\"\"\"",
+			"\tdef _inv(x, MOD):",
+			"\t\t\"\"\"xの逆元を返す\"\"\"",
+			"\t\treturn pow(x, MOD-2, MOD)",
+			"",
+			"\tr = min(n-r, r)",
+			"\tbunsi, bunbo = 1, 1",
+			"\tfor i in range(r):",
+			"\t\tbunsi = bunsi*(n-i)%MOD",
+			"\t\tbunbo = bunbo*(i+1)%MOD",
+			"\treturn (bunsi*_inv(bunbo, MOD))%MOD"
+			]
 	},
 
 	// 高階関数
