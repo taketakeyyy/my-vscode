@@ -18,9 +18,6 @@
     "editor.autoClosingQuotes": "never",
     "editor.autoSurround": "never",
 
-    /*** files ***/
-    "files.trimTrailingWhitespace": true,
-
     /*** HTML ***/
     "html.autoClosingTags": false,
 
@@ -67,4 +64,5 @@
     "terminal.integrated.inheritEnv": false,
     "gitlens.gitCommands.closeOnFocusOut": true,
     "javascript.updateImportsOnFileMove.enabled": "always",
+    "files.trimTrailingWhitespace": true,
 }
