@@ -18,6 +18,13 @@
     "editor.autoClosingQuotes": "never",
     "editor.autoSurround": "never",
 
+    /*** Python ***/
+    "python.linting.pylingArgs": [
+      "--ignored-modules=numpy,cv2,matplotlib",
+      "--ignored-classes=numpy,cv2,matplotlib",
+      "--extension-pkg-whitelist=numpy,cv2,matplotlib"
+    ],
+
     /*** HTML ***/
     "html.autoClosingTags": false,
 
@@ -65,4 +72,5 @@
     "gitlens.gitCommands.closeOnFocusOut": true,
     "javascript.updateImportsOnFileMove.enabled": "always",
     "files.trimTrailingWhitespace": true,
+    "liveServer.settings.donotShowInfoMsg": true,
 }
