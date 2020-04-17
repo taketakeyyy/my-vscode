@@ -12,3 +12,5 @@ windows10 maybe: `C:\Users\user-name\AppData\Roaming\Code`
   - Highlight trailing spaces and delete them in a flash!
 * [HTML Preview](https://marketplace.visualstudio.com/items?itemName=tht13.html-preview-vscode)
   - Rightclick a tab of .html file > "Open Preciew(Ctrl+Shift+V)"
+* [indent-rainbow](https://marketplace.visualstudio.com/items?itemName=oderwat.indent-rainbow)
+  - Makes indentation easier to read
