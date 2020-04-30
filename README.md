@@ -14,3 +14,5 @@ windows10 maybe: `C:\Users\user-name\AppData\Roaming\Code`
   - Rightclick a tab of .html file > "Open Preciew(Ctrl+Shift+V)"
 * [indent-rainbow](https://marketplace.visualstudio.com/items?itemName=oderwat.indent-rainbow)
   - Makes indentation easier to read
+* [Code Runner](https://marketplace.visualstudio.com/items?itemName=formulahendry.code-runner)
+  - Run code snippet or code file for multiple languages: C, C++, Java, JavaScript,...
