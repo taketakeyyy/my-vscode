@@ -18,8 +18,12 @@
     "editor.autoClosingQuotes": "never",
     "editor.autoSurround": "never",
 
-    /*** files ***/
-    "files.trimTrailingWhitespace": true,
+    /*** Python ***/
+    "python.linting.pylingArgs": [
+      "--ignored-modules=numpy,cv2,matplotlib",
+      "--ignored-classes=numpy,cv2,matplotlib",
+      "--extension-pkg-whitelist=numpy,cv2,matplotlib"
+    ],
 
     /*** HTML ***/
     "html.autoClosingTags": false,
@@ -69,4 +73,6 @@
     "javascript.updateImportsOnFileMove.enabled": "always",
     "code-runner.runInTerminal": true,
     "python.languageServer": "Pylance",
+    "files.trimTrailingWhitespace": true,
+    "liveServer.settings.donotShowInfoMsg": true,
 }
