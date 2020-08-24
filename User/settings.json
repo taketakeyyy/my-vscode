@@ -71,6 +71,8 @@
     "terminal.integrated.inheritEnv": false,
     "gitlens.gitCommands.closeOnFocusOut": true,
     "javascript.updateImportsOnFileMove.enabled": "always",
+    "code-runner.runInTerminal": true,
+    "python.languageServer": "Pylance",
     "files.trimTrailingWhitespace": true,
     "liveServer.settings.donotShowInfoMsg": true,
     "window.menuBarVisibility": "default",
