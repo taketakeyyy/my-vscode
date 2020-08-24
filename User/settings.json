@@ -73,4 +73,6 @@
     "javascript.updateImportsOnFileMove.enabled": "always",
     "files.trimTrailingWhitespace": true,
     "liveServer.settings.donotShowInfoMsg": true,
+    "window.menuBarVisibility": "default",
+    "editor.minimap.enabled": false,
 }
