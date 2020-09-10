@@ -75,4 +75,7 @@
     "python.languageServer": "Pylance",
     "files.trimTrailingWhitespace": true,
     "liveServer.settings.donotShowInfoMsg": true,
+    "window.menuBarVisibility": "default",
+    "editor.minimap.enabled": false,
+    "terminal.integrated.automationShell.windows": "",
 }
