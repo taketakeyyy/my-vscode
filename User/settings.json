@@ -78,4 +78,6 @@
     "window.menuBarVisibility": "default",
     "editor.minimap.enabled": false,
     "terminal.integrated.automationShell.windows": "",
+    "liveServer.settings.donotVerifyTags": true,
+    "editor.acceptSuggestionOnEnter": "off",
 }
