@@ -1,22 +1,7 @@
 {
     /*** terminal  ***/
     "terminal.integrated.shell.windows": "C:\\WINDOWS\\System32\\WindowsPowerShell\\v1.0\\powershell.exe",
-    //"terminal.integrated.shell.windows": "C:\\Windows\\Sysnative\\WindowsPowerShell\\v1.0\\powershell.exe",
-
-    /*** Run activate with Anaconda ***/
-    /*
-    "terminal.integrated.shellArgs.windows": [
-        "/K",
-        "%USERPROFILE%/AppData/Local/Continuum/anaconda3/Scripts/activate.bat",
-        "%USERPROFILE%/AppData/Local/Continuum/anaconda3",
-        ""
-    ],
-    */
-
-    /*** editor ***/
-    "editor.autoClosingBrackets": "never",
-    "editor.autoClosingQuotes": "never",
-    "editor.autoSurround": "never",
+    // "terminal.integrated.shell.windows": "C:\\msys64\\usr\\bin\\bash.exe",
 
     /*** Python ***/
     "python.linting.pylingArgs": [
