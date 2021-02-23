@@ -20,6 +20,7 @@
 			"#define MOD 1000000007",
 			"#define COUNTOF(array) (sizeof(array)/sizeof(array[0]))",
 			"#define rep(i,n) for (int i = 0; i < (n); ++i)",
+			"#define intceil(a,b) (a+(b-1))/b",
 			"using namespace std;",
 			"using ll = long long;",
 			"using pii = pair<int,int>;",
