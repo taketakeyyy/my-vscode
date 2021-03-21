@@ -25,7 +25,7 @@
 			"using ll = long long;",
 			"using pii = pair<int,int>;",
 			"using pll = pair<long,long>;",
-			"const long long INF = LONG_LONG_MAX - 1001001001;",
+			"const long long INF = LONG_LONG_MAX - 1001001001001001;",
 			"void chmax(int& x, int y) { x = max(x,y); }",
 			"void chmin(int& x, int y) { x = min(x,y); }",
 			"",
@@ -352,19 +352,6 @@
 		"description": "配列の安定ソート（降順）"
 	},
 
-	/*
-	[map]
-
-	#include <map>
-	using namespace std;
-
-	*/
-	"map_sample": {
-		"prefix": "map_sample",
-		"body": "map<string, int> mp;",
-		"description": "連想配列を作成する"
-	},
-
 
 	/*
 	std::end()
@@ -600,7 +587,6 @@
 
 	*/
 	"stable_sort_vector_ascend": {
-		/* vectorの型とgreaterの型を合わせること */
 		"prefix": "sort_vector_ascend",
 		"body": [
 			"stable_sort(${0:v.begin()}, ${1:v.end()});"
@@ -612,29 +598,23 @@
 		/* vectorの型とgreaterの型を合わせること */
 		"prefix": "sort_vector_descend",
 		"body": [
-			"stable_sort(${0:v.begin()}, ${1:v.end()}, greater<${2:int}>());"
+			"stable_sort(${0:v.begin()}, ${1:v.end()}, greater<${2:ll}>());"
 		],
 		"description": "vectorの安定ソート（降順）"
-	},
-
-	"map_sample": {
-		"prefix": "map_sample",
-		"body": "map<string, int> mp;",
-		"description": "連想配列を作成する"
 	},
 
 	/*
 	vector
 	*/
-	"vector_sample": {
-		"prefix": "vector_sample",
-		"body": "vector<int> vec(N, 0)",
+	"vector_ll": {
+		"prefix": "vector_ll",
+		"body": "vector<ll> vec(N, 0)",
 		"description": "vectorを作成する"
 	},
 
 	"vector_2d": {
 		"prefix": "vector_2d",
-		"body": "vector<vector<int>> vv(N, vector<int>(N, 0))",
+		"body": "vector<vector<ll>> grid(N, vector<ll>(N, 0))",
 		"description": "2次元vectorを作成する"
 	},
 
@@ -653,29 +633,6 @@
 		"description": "文字列の置換(string)"
 	},
 
-	/*
-	pair
-	https://programming-place.net/ProgrammingPlacePlus/cpp/library/003.html
-	*/
-	// pair<int, int> itv[10];
-	// itv[i].first = 10;
-	// itv[i].second = 20;
-	// sort(itv, itv + N); (first要素でソートされる)
-	"pair_sample":{
-		"prefix": "pair_sample",
-		"body": [
-			"pair<int, int> itv[N];"
-		],
-		"description": "pairのサンプル"
-	},
-
-	"nake_pair_sample":{
-		"prefix": "make_pair_sample",
-		"body": [
-			"auto a = make_pair(10, 20);"
-		],
-		"description": "make_pairのサンプル"
-	},
 
 	/***
 	 * mintライブラリ
@@ -717,6 +674,7 @@
 		],
 		"description": "自動でMODをとるmintライブラリ"
 	},
+
 
 	// END
 	"dummy":{

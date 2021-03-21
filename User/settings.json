@@ -65,4 +65,11 @@
     "terminal.integrated.automationShell.windows": "",
     "liveServer.settings.donotVerifyTags": true,
     "editor.acceptSuggestionOnEnter": "off",
+    "files.autoSave": "afterDelay",
+    "workbench.editorAssociations": [
+      {
+        "viewType": "jupyter.notebook.ipynb",
+        "filenamePattern": "*.ipynb"
+      }
+    ],
 }
