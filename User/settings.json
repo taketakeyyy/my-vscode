@@ -1,7 +1,8 @@
 {
     /*** terminal  ***/
-    "terminal.integrated.shell.windows": "C:\\WINDOWS\\System32\\WindowsPowerShell\\v1.0\\powershell.exe",
+    // "terminal.integrated.shell.windows": "C:\\WINDOWS\\System32\\cmd.exe",
     // "terminal.integrated.shell.windows": "C:\\msys64\\usr\\bin\\bash.exe",
+    "terminal.integrated.shell.windows": "C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\powershell.exe",
 
     /*** Python ***/
     "python.linting.pylingArgs": [
