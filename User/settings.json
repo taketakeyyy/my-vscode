@@ -67,10 +67,14 @@
     "liveServer.settings.donotVerifyTags": true,
     "editor.acceptSuggestionOnEnter": "off",
     "files.autoSave": "afterDelay",
-    "workbench.editorAssociations": [
-      {
-        "viewType": "jupyter.notebook.ipynb",
-        "filenamePattern": "*.ipynb"
-      }
-    ],
+    "workbench.editorAssociations": {
+      "*.ipynb": "jupyter-notebook"
+    },
+    "notebook.cellToolbarLocation": {
+      "default": "right",
+      "jupyter-notebook": "left"
+    },
+    "remote.SSH.remotePlatform": {
+      "myraspi": "linux"
+    },
 }
